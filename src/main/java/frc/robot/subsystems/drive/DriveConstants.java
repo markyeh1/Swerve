@@ -62,8 +62,10 @@ public class DriveConstants {
   public static final int driveMotorCurrentLimit = 50;
   public static final double wheelRadiusMeters = Units.inchesToMeters(2);
   public static final double driveMotorReduction =
-      (45.0 * 27.0) / (17.0 * 15.0); // MAXSwerve with 14 pinion teeth and 22 spur teeth
-  public static final DCMotor driveGearbox = DCMotor.getNeoVortex(1);
+      (50.0 / 14.0)
+          * (17.0 / 27.0)
+          * (45.0 / 15.0); // MAXSwerve with 14 pinion teeth and 22 spur teeth
+  public static final DCMotor driveGearbox = DCMotor.getNEO(1);
 
   // Drive encoder configuration
   public static final double driveEncoderPositionFactor =
@@ -82,23 +84,23 @@ public class DriveConstants {
   public static final double driveSimKv = 0.0789;
 
   // Turn motor configuration
-  public static final boolean turnInverted = true;
+  public static final boolean turnInverted = false;
   public static final int turnMotorCurrentLimit = 20;
   public static final double turnMotorReduction = 150 / 7;
-  public static final DCMotor turnGearbox = DCMotor.getNeo550(1);
+  public static final DCMotor turnGearbox = DCMotor.getNEO(1);
 
   // Turn encoder configuration
   public static final boolean turnEncoderInverted = true;
   public static final double turnEncoderPositionFactor = 2 * Math.PI; // Rotations -> Radians
-  public static final double turnEncoderVelocityFactor = (2 * Math.PI) / 60.0; // RPM -> Rad/Sec
+  public static final double turnEncoderVelocityFactor = (2 * Math.PI) / 60.0; // RPM -> Rad/Sec//2
 
   // Turn PID configuration
-  public static final double turnKp = 2.0;
+  public static final double turnKp = 0.2; // 2
   public static final double turnKd = 0.0;
   public static final double turnSimP = 8.0;
   public static final double turnSimD = 0.0;
   public static final double turnPIDMinInput = 0; // Radians
-  public static final double turnPIDMaxInput = 2 * Math.PI; // Radians
+  public static final double turnPIDMaxInput = 1 * Math.PI; // Radians //1
 
   // PathPlanner configuration
   public static final double robotMassKg = 74.088;
